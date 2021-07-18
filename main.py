@@ -1,6 +1,6 @@
+import getpass
 import os
 import sys
-import getpass
 
 """
 Project Name: better_pip
@@ -99,15 +99,17 @@ try:
 
     if __name__ == '__main__':
         try:
-            if sys.argv[1] == "update":
+            if sys.argv[1] == "-update" or sys.argv[1] == "-u":
                 update_pip3_package()
-            elif sys.argv[1] == "update pip3":
+            elif sys.argv[1] == "-update_pip3" or sys.argv[1] == "-U":
                 update_pip3()
-            elif sys.argv[1] == "unset":
+            elif sys.argv[1] == "-unset" or sys.argv[1] == "-un":
                 unset_pip3_conf()
-            elif sys.argv[1] == "help":
-                print("操作目录：update -- 更新所有有新版本的第三方库 update pip3 -- 更新pip3 "
-                      "help -- 查看操作目录 'other' -- 进入程序，可自动设置 pip3源")
+            elif sys.argv[1] == "-help":
+                print('''-help 在终端中快速查看参数菜单
+-update or -u 更新所有有新版本的库
+-update_pip3 or -U 更新pip3
+-unset or -un 重新设置pip3配置文件，未自行配置的只会影响pip3源，重设后为官方源''')
             else:
                 main()
         except IndexError:
